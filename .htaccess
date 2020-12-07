@@ -1,0 +1,9 @@
+
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteCond %{HTTP_HOST} ^ronanferrentino\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.ronanferrentino\.com$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)\.html$ /$1 [L,R=301]
